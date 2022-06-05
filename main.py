@@ -19,7 +19,7 @@ app = Bottle()
 @app.route('/hello')
 def hello():
     departures = []
-    r = requests.get("https://api.sncf.com/v1/coverage/sncf/stop_areas/stop_area:SNCF:87286005/departures?datetime=20220605T173520", headers={'Authorization': 'e365513b-7549-4ff8-8ee6-7c430558dd55'})
+    r = requests.get("https://api.sncf.com/v1/coverage/sncf/stop_areas/stop_area:SNCF:87286005/departures?datetime=20220605T173520", headers={'Authorization': '<my token>'})
     data = r.json()
     for departure in data["departures"]:
         date = datetime.strptime(departure['stop_date_time']['arrival_date_time'], '%Y%m%dT%H%M%S')
